@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-serif: 'Playfair Display', Georgia, serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Base Tokens: The Editorial Bahi-Khata */
+    --canvas-ivory: #FAF7F2;
+    --surface-sandstone: #F3EFE6;
+    --surface-card: #FFFFFF;
+    --surface-dark-ledger: #181512;
+    --kohl-ink: #161412;
+    --muted-stone: #686259;
+    --sindoor-vermilion: #C23B22;
+    --sindoor-deep: #9E2A15;
+    --burnished-brass: #B4690E;
+    --mehendi-emerald: #1E5631;
+    --blueprint-slate: #2B4C7E;
+    --hairline-border: #E4DEC8;
+    --strong-border: #C9C0A6;
+
+    /* Default Dynamic Vibe Defaults (Wedding) */
+    --vibe-accent: #C23B22;
+    --vibe-secondary: #B4690E;
+    --vibe-well: #FDF8F5;
+    --vibe-border: #E8D5CE;
+    --vibe-shadow: #E8D5CE;
+  }
+
+  [data-vibe="wedding"] {
+    --vibe-accent: #C23B22;
+    --vibe-secondary: #B4690E;
+    --vibe-well: #FDF8F5;
+    --vibe-border: #E8D5CE;
+    --vibe-shadow: #E8D5CE;
+  }
+
+  [data-vibe="birthday"] {
+    --vibe-accent: #BE185D;
+    --vibe-secondary: #D97706;
+    --vibe-well: #FFF7ED;
+    --vibe-border: #F3DEC9;
+    --vibe-shadow: #F3DEC9;
+  }
+
+  [data-vibe="community"] {
+    --vibe-accent: #C2410C;
+    --vibe-secondary: #0F766E;
+    --vibe-well: #F4FBF7;
+    --vibe-border: #C8E3D7;
+    --vibe-shadow: #C8E3D7;
+  }
+
+  body {
+    background-color: #FAF7F2;
+    color: #161412;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+  }
+
+  /* Architectural Ledger Scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F3EFE6;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #C9C0A6;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #B4690E;
+  }
+}
+
+/* ── Typography & Numeric Tabular Helpers ─────────────────────────────────── */
+
+.font-serif-heading {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-mono-numeric {
+  font-family: 'JetBrains Mono', monospace;
+  font-feature-settings: 'tnum' on, 'zero' on;
+}
+
+/* ── Tactile Neo-Editorial Card Physics & Surfaces ───────────────────────── */
+
+.tactile-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E4DEC8;
+  box-shadow: 3px 3px 0px #E4DEC8;
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.15s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.15s ease;
+}
+
+.tactile-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 4px 4px 0px var(--vibe-accent, #B4690E);
+  border-color: var(--vibe-accent, #B4690E);
+}
+
+.tactile-card:active {
+  transform: translateY(0px);
+  box-shadow: 1px 1px 0px var(--vibe-accent, #B4690E);
+}
+
+.tactile-btn {
+  border: 1px solid #E4DEC8;
+  box-shadow: 2px 2px 0px #E4DEC8;
+  transition: transform 0.12s ease, box-shadow 0.12s ease, background-color 0.12s ease;
+}
+
+.tactile-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0px var(--vibe-accent, #B4690E);
+}
+
+.tactile-btn:active {
+  transform: translateY(0px);
+  box-shadow: 1px 1px 0px var(--vibe-accent, #B4690E);
+}
+
+.bahi-card {
+  background-color: #FFFFFF;
+  border: 1px solid #E4DEC8;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(22, 20, 18, 0.04);
+}
+
+.bahi-well {
+  background-color: var(--vibe-well, #F3EFE6);
+  border: 1px solid var(--vibe-border, #E4DEC8);
+  border-radius: 6px;
+}
+
+.dark-ledger-drawer {
+  background-color: #181512;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FAF7F2;
+}
+
+/* ── Festive Canopy Animations ────────────────────────────────────────────── */
+
+@keyframes toran-sway {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(1.5deg);
+  }
+}
+
+@keyframes bunting-flutter {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-2px);
+  }
+}
+
+@keyframes starburst-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-toran {
+  transform-origin: top center;
+  animation: toran-sway 4s ease-in-out infinite;
+}
+
+.animate-bunting {
+  animation: bunting-flutter 3s ease-in-out infinite;
+}
+
+.animate-starburst {
+  transform-origin: center center;
+  animation: starburst-spin 60s linear infinite;
+}
+
+/* ── Clean Print Rules for Physical Execution Briefs ──────────────────────── */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #161412 !important;
+  }
+
+  header, nav, .chaos-bar, .no-print, .event-canopy {
+    display: none !important;
+  }
+
+  .bahi-card, .bahi-well, .tactile-card {
+    background: transparent !important;
+    border: 1px solid #161412 !important;
+    color: #161412 !important;
+    box-shadow: none !important;
+  }
+}

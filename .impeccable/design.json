@@ -1,0 +1,166 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-31T02:31:30.000Z",
+  "title": "Design System: Tyohar AI",
+  "extensions": {
+    "colorMeta": {
+      "sacred-saffron": {
+        "role": "primary",
+        "displayName": "Sacred Saffron Gold",
+        "canonical": "#f59e0b",
+        "tonalRamp": ["#fef3c7", "#fde68a", "#f59e0b", "#d97706", "#78350f"]
+      },
+      "gulal-rose": {
+        "role": "secondary",
+        "displayName": "Gulal Crimson Rose",
+        "canonical": "#f43f5e",
+        "tonalRamp": ["#ffe4e6", "#fecdd3", "#f43f5e", "#e11d48", "#881337"]
+      },
+      "utsav-emerald": {
+        "role": "tertiary",
+        "displayName": "Utsav Emerald",
+        "canonical": "#10b981",
+        "tonalRamp": ["#d1fae5", "#6ee7b7", "#10b981", "#059669", "#064e3b"]
+      },
+      "night-indigo": {
+        "role": "tertiary",
+        "displayName": "Night Sky Indigo",
+        "canonical": "#6366f1",
+        "tonalRamp": ["#e0e7ff", "#a5b4fc", "#6366f1", "#4f46e5", "#312e81"]
+      },
+      "midnight-obsidian": {
+        "role": "neutral",
+        "displayName": "Midnight Obsidian",
+        "canonical": "#09090b",
+        "tonalRamp": ["#09090b", "#121216", "#18181f", "#27272a", "#f4f4f5"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero ceremonial headlines and print title briefs in Playfair Display."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Major dashboard section titles and drawer titles."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Card titles and milestone category headers in Plus Jakarta Sans."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Narrative explanations, vendor notes, and guidelines."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Tabular INR currency amounts and numerical plate buffers in JetBrains Mono."
+      },
+      "caption": {
+        "displayName": "Caption",
+        "purpose": "Secondary tags and micro-copy (11px)."
+      },
+      "micro": {
+        "displayName": "Micro Badge",
+        "purpose": "Status pills and step counters (9px–10px)."
+      }
+    },
+    "shadows": [
+      {
+        "name": "spotlight-ambient",
+        "value": "0 0 40px rgba(245, 158, 11, 0.12)",
+        "purpose": "Dynamic radial cursor spotlight glow on glassmorphic cards."
+      },
+      {
+        "name": "modal-elevation",
+        "value": "0 25px 50px -12px rgba(0, 0, 0, 0.7)",
+        "purpose": "Elevation for the ⌘K Command Drawer and BYOK settings modal."
+      }
+    ],
+    "motion": [
+      {
+        "name": "spring-tactile",
+        "value": "type: spring, bounce: 0.2, duration: 0.35",
+        "purpose": "Button presses, card hovers, and animated tab sliding indicator."
+      },
+      {
+        "name": "counter-ease",
+        "value": "easeOutExpo duration: 500ms",
+        "purpose": "Numerical interpolation for rolling currency and plate counters."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Action Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Ceremonial high-priority action button with saffron-to-rose gradient.",
+      "html": "<button class=\"btn-primary\">Simulate What-If</button>",
+      "css": ".btn-primary { background: linear-gradient(to right, #f59e0b, #f43f5e); color: #000; font-weight: 700; padding: 8px 16px; border-radius: 12px; border: none; box-shadow: 0 4px 14px rgba(245, 158, 11, 0.2); transition: all 0.2s ease; cursor: pointer; } .btn-primary:hover { opacity: 0.95; transform: scale(1.02); }"
+    },
+    {
+      "name": "Spotlight Glass Card",
+      "kind": "card",
+      "refersTo": "card-base",
+      "description": "Glassmorphic obsidian surface with interactive mouse-tracking spotlight radial illumination.",
+      "html": "<div class=\"spotlight-card\"><h3>Milestone Ledger</h3><p>Allocations balanced by priority weights.</p></div>",
+      "css": ".spotlight-card { background: rgba(18, 18, 22, 0.9); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; padding: 24px; backdrop-filter: blur(16px); color: #f4f4f5; transition: border-color 0.3s ease; } .spotlight-card:hover { border-color: rgba(255, 255, 255, 0.16); }"
+    },
+    {
+      "name": "Sliding Animated Tab",
+      "kind": "nav",
+      "refersTo": "button-outline",
+      "description": "Sub-navigation pill with Framer Motion layoutId active pill highlight.",
+      "html": "<div class=\"tab-pill active\">1. Smart Plate & AI Packages</div>",
+      "css": ".tab-pill { padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 600; color: #94a3b8; } .tab-pill.active { background: rgba(245, 158, 11, 0.15); border: 1px solid rgba(245, 158, 11, 0.3); color: #fff; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Royal Mandap Console",
+    "overview": "Tyohar AI unites the nocturnal grandeur of Indian ceremonial celebrations with the disciplined density of modern executive developer tools. It operates in the space where sacred family warmth meets uncompromising logistical and mathematical rigor. The visual world is defined by deep obsidian surfaces (#09090b), soft glassmorphic panels, and the warm glow of sacred saffron, gulal rose, and starlight slate.",
+    "keyCharacteristics": [
+      "Nocturnal Obsidian Architecture (#09090b canvas layered with #121216 cards)",
+      "Sacred Chromatic Accents (Saffron Gold #F59E0B, Gulal Rose #F43F5E, Utsav Emerald #10B981)",
+      "Tri-Typographic Discipline (Playfair Display, Plus Jakarta Sans, JetBrains Mono)",
+      "Tactile Luminous Interactivity (Spotlight cards, spring physics, smooth counter interpolation)"
+    ],
+    "rules": [
+      {
+        "name": "The Sacred Saffron Rule",
+        "body": "Saffron Gold (#F59E0B) is strictly reserved for primary actions, positive fiscal shagun savings, and key AI insights. It covers <=10% of any viewport to preserve its ceremonial gravitas.",
+        "section": "colors"
+      },
+      {
+        "name": "The Tabular Number Rule",
+        "body": "All numerical currency amounts, guest counts, and plate estimates must use JetBrains Mono with enabled tabular numbers (tnum) to eliminate layout jitter.",
+        "section": "typography"
+      },
+      {
+        "name": "The Border-First Elevation Rule",
+        "body": "Elevation is defined primarily by border luminance and surface tonal steps, never by dark drop-shadows on dark backgrounds.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do wrap large currency amounts and plate counters in AnimatedCurrency and AnimatedNumber so financial adjustments roll smoothly.",
+      "Do explicitly badge all unverified estimates with 'Estimated Market Benchmark (Unconfirmed)'.",
+      "Do conceal maximum budget ceilings from vendor negotiation drafts generated in the WhatsApp RFQ studio.",
+      "Do ensure every interactive card provides keyboard accessibility and clear visual focus rings.",
+      "Do render print-friendly high-contrast black-on-white styles (@media print) for official execution briefs."
+    ],
+    "donts": [
+      "Don't use pure solid white (#FFFFFF) for large background surfaces in dark mode; maintain the #09090b obsidian hierarchy.",
+      "Don't deploy Saffron Gold (#F59E0B) as an all-over background fill; it is an accent of ceremonial rarity.",
+      "Don't format INR currency values without the Rupee symbol (₹) and standard Indian locale groupings (1,00,000).",
+      "Don't trigger destructive or irreversible state resets when running 'What-If' mutations; always diff and update in-place.",
+      "Don't hardcode external API credentials anywhere in client code; enforce session-isolated BYOK."
+    ]
+  }
+}

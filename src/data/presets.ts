@@ -1,0 +1,768 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// Tyohar AI — Rich Indian Event Presets
+// All prices are Estimated Market Benchmarks (2024–25, Tier-1 Indian cities).
+// ─────────────────────────────────────────────────────────────────────────────
+
+import type { EventPlan } from '../types/tyohar';
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Preset 1: Royal Yet Intimate Wedding
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const PRESET_WEDDING: EventPlan = {
+  name: 'Royal Yet Intimate Wedding',
+  eventType: 'wedding',
+  eventDate: '2025-02-15',
+  totalBudgetINR: 800000,
+  guestCount: 200,
+  priorityWeights: {
+    food: 5,
+    decor: 3,
+    venue: 4,
+    photography: 4,
+    entertainment: 2,
+  },
+  demographics: {
+    kidsPercent: 10,
+    adultsPercent: 75,
+    seniorsPercent: 15,
+    dietaryTags: ['Vegetarian', 'Jain (No Onion/Garlic)', 'Vegan counter'],
+    accessibilityNeeds: [
+      'Wheelchair-accessible entrance & restrooms',
+      'Reserved low-table seating for senior citizens',
+    ],
+  },
+  budgetCategories: [
+    {
+      id: 'cat-food',
+      name: 'Food & Catering',
+      allocatedAmount: 280000,
+      estimatedCost: 300000,
+      isConfirmedQuote: false,
+      priority: 5,
+      notes:
+        'Estimated Market Benchmark: ₹1,400–₹1,800/plate for a 200-guest multi-cuisine buffet with 2 live counters (chaat + pasta), dessert bar, and welcome drinks.',
+    },
+    {
+      id: 'cat-decor',
+      name: 'Décor & Flowers',
+      allocatedAmount: 120000,
+      estimatedCost: 130000,
+      isConfirmedQuote: false,
+      priority: 3,
+      notes:
+        'Estimated Market Benchmark: Marigold & rose mandap, fairy-light canopy, floral entrance arch. Seasonal flowers preferred to control cost.',
+    },
+    {
+      id: 'cat-venue',
+      name: 'Venue',
+      allocatedAmount: 200000,
+      estimatedCost: 200000,
+      isConfirmedQuote: true,
+      priority: 4,
+      notes:
+        'Estimated Market Benchmark: Banquet hall with AC, parking for 50 cars, generator backup. Confirmed quote from "Grand Tulip Banquets".',
+    },
+    {
+      id: 'cat-photo',
+      name: 'Photography & Video',
+      allocatedAmount: 130000,
+      estimatedCost: 120000,
+      isConfirmedQuote: false,
+      priority: 4,
+      notes:
+        'Estimated Market Benchmark: Duo photographers + cinematic video, 1 pre-wedding shoot, 300 edited photos, 10-min highlight reel.',
+    },
+    {
+      id: 'cat-entertain',
+      name: 'Entertainment & Music',
+      allocatedAmount: 70000,
+      estimatedCost: 65000,
+      isConfirmedQuote: false,
+      priority: 2,
+      notes:
+        'Estimated Market Benchmark: DJ + sound system for 5 hours, basic LED dance floor, MC/anchor for ceremonies.',
+    },
+  ],
+  smartPlate: {
+    invitedGuests: 200,
+    expectedTurnoutPercent: 88,
+    guaranteedBasePlates: 176,
+    bufferPlates: 18,
+    estimatedSavingsINR: 9600,
+    surplusRedistributionPlan: [
+      'Step 1 — Pack & Distribute: Arrange takeaway containers and distribute surplus meals to event staff, security, and drivers on-site.',
+      'Step 2 — Community Share: Coordinate with a local NGO or community kitchen (e.g., Robin Hood Army) for same-day pickup of sealed surplus food.',
+      'Step 3 — Compost Responsibly: Any food that cannot be redistributed should be sent to a composting facility rather than landfill — confirm with your venue\'s waste-management partner.',
+    ],
+  },
+  vendorPackages: [
+    {
+      mode: 'minimize_cost',
+      title: 'Budget-Smart Vegetarian Feast',
+      estimatedPerPersonINR: 1200,
+      totalEstimatedINR: 240000,
+      menuHighlights: [
+        'Paneer Tikka + Dal Makhani + Seasonal Sabzi',
+        'Live Chaat Counter',
+        'Gulab Jamun & Jalebi Dessert Station',
+      ],
+      arrangementHighlights: [
+        'Self-service buffet with 8 stations',
+        'Disposable crockery (eco-friendly sugarcane plates)',
+      ],
+      pros: ['Lowest cost per plate', 'Proven crowd-pleaser menu', 'Fast service'],
+      tradeOffs: [
+        'No live pasta/dosa counter',
+        'Limited dessert variety',
+        'Disposable crockery may feel less premium',
+      ],
+    },
+    {
+      mode: 'balanced',
+      title: 'Classic Multi-Cuisine Experience',
+      estimatedPerPersonINR: 1600,
+      totalEstimatedINR: 320000,
+      menuHighlights: [
+        'North + South Indian combo buffet',
+        'Live Pasta & Chaat counters',
+        'Ice-cream & Mithai bar',
+        'Welcome mocktail station',
+      ],
+      arrangementHighlights: [
+        'Steel crockery + cloth napkins',
+        'Dedicated Jain counter (no onion/garlic)',
+      ],
+      pros: ['Good variety without extravagance', 'Jain guests catered separately', 'Premium feel'],
+      tradeOffs: [
+        '~33% more expensive than Budget tier',
+        'Requires 2 extra service staff',
+      ],
+    },
+    {
+      mode: 'maximize_variety',
+      title: 'Royal Grand Spread',
+      estimatedPerPersonINR: 2200,
+      totalEstimatedINR: 440000,
+      menuHighlights: [
+        '5-cuisine spread: Indian, Italian, Mexican, Chinese, Lebanese',
+        'Live Tandoor, Dosa, Pasta, Wok counters',
+        'Chocolate Fountain + Paan counter + Kulfi bar',
+        'Premium mocktail & fresh juice bar',
+      ],
+      arrangementHighlights: [
+        'Bone-china crockery, linen tables, floral centrepieces on food stations',
+        'Dedicated Jain + Vegan + Kids corner',
+      ],
+      pros: ['Maximum variety & "wow" factor', 'Every dietary need covered', 'Instagram-worthy presentation'],
+      tradeOffs: [
+        'Highest cost — nearly 2× budget tier',
+        'Needs 6+ service staff',
+        'Longer setup time (3+ hours)',
+      ],
+    },
+  ],
+  vendorQuotes: [],
+  timeline: [
+    {
+      id: 'tl-1',
+      title: 'Finalise venue booking & pay advance',
+      category: 'Venue',
+      weeksBefore: 16,
+      status: 'completed',
+      dependsOn: [],
+      impactIfDelayed: 'Preferred dates may get booked; entire planning stalls.',
+    },
+    {
+      id: 'tl-2',
+      title: 'Shortlist & meet photographers',
+      category: 'Photography & Video',
+      weeksBefore: 14,
+      status: 'pending',
+      dependsOn: ['tl-1'],
+      impactIfDelayed: 'Top photographers get booked 3–4 months ahead in wedding season.',
+    },
+    {
+      id: 'tl-3',
+      title: 'Finalise menu & caterer contract',
+      category: 'Food & Catering',
+      weeksBefore: 12,
+      status: 'pending',
+      dependsOn: ['tl-1'],
+      impactIfDelayed: 'Menu tasting slots fill up; last-minute bookings attract 10–15% premium.',
+    },
+    {
+      id: 'tl-4',
+      title: 'Confirm décor theme & vendor',
+      category: 'Décor & Flowers',
+      weeksBefore: 10,
+      status: 'pending',
+      dependsOn: ['tl-1'],
+      impactIfDelayed: 'Seasonal flower pre-orders missed; may need to switch to artificial décor.',
+    },
+    {
+      id: 'tl-5',
+      title: 'Send digital invitations (Save the Date)',
+      category: 'Venue',
+      weeksBefore: 10,
+      status: 'pending',
+      dependsOn: ['tl-1'],
+      impactIfDelayed: 'Guests can\'t plan travel; RSVP window shrinks.',
+    },
+    {
+      id: 'tl-6',
+      title: 'Book DJ / entertainment & confirm sound equipment',
+      category: 'Entertainment & Music',
+      weeksBefore: 8,
+      status: 'pending',
+      dependsOn: ['tl-1'],
+      impactIfDelayed: 'Premium DJs unavailable; backup options may cost more.',
+    },
+    {
+      id: 'tl-7',
+      title: 'Pre-wedding shoot',
+      category: 'Photography & Video',
+      weeksBefore: 6,
+      status: 'pending',
+      dependsOn: ['tl-2'],
+      impactIfDelayed: 'Can\'t use pre-wedding photos in event montage or entrance display.',
+    },
+    {
+      id: 'tl-8',
+      title: 'Collect RSVPs & finalise guest list',
+      category: 'Food & Catering',
+      weeksBefore: 4,
+      status: 'pending',
+      dependsOn: ['tl-5'],
+      impactIfDelayed: 'Smart Plate calculation inaccurate; caterer can\'t confirm plate count.',
+    },
+    {
+      id: 'tl-9',
+      title: 'Final menu tasting & plate-count confirmation',
+      category: 'Food & Catering',
+      weeksBefore: 3,
+      status: 'pending',
+      dependsOn: ['tl-3', 'tl-8'],
+      impactIfDelayed: 'Caterer may substitute dishes; Jain counter at risk.',
+    },
+    {
+      id: 'tl-10',
+      title: 'Venue walkthrough & setup dry run',
+      category: 'Venue',
+      weeksBefore: 2,
+      status: 'pending',
+      dependsOn: ['tl-4', 'tl-6'],
+      impactIfDelayed: 'Layout conflicts between décor & sound discovered too late.',
+    },
+    {
+      id: 'tl-11',
+      title: 'Final payments & backup logistics check',
+      category: 'Venue',
+      weeksBefore: 1,
+      status: 'pending',
+      dependsOn: ['tl-9', 'tl-10'],
+      impactIfDelayed: 'Vendors may withhold services; emergency vendor sourcing needed.',
+    },
+  ],
+  vibeAudit: [
+    {
+      zone: 'Main Dining Hall',
+      frictionWarning: 'Loud DJ speakers near dining tables can overwhelm senior guests and overstimulate young children.',
+      accommodationFix: 'Place speakers facing the dance floor only; create a "quiet dining zone" at the far end with acoustic baffles.',
+      targetGroup: 'seniors',
+    },
+    {
+      zone: 'Kids Corner',
+      frictionWarning: 'No dedicated activity zone — kids may run into the ceremonial area.',
+      accommodationFix: 'Set up a supervised play area with colouring stations and a mini-projector showing cartoons.',
+      targetGroup: 'kids',
+    },
+    {
+      zone: 'Entrance & Parking',
+      frictionWarning: 'Senior guests and wheelchair users may struggle with gravel pathways or stairs at the entrance.',
+      accommodationFix: 'Arrange temporary ramp, non-slip carpet runner, and golf-cart shuttle from parking to hall.',
+      targetGroup: 'seniors',
+    },
+  ],
+  tradeOffs: [],
+  mutationHistory: [],
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Preset 2: Campus & Community Cultural Utsav
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const PRESET_COMMUNITY: EventPlan = {
+  name: 'Campus & Community Cultural Utsav',
+  eventType: 'community',
+  eventDate: '2025-03-20',
+  totalBudgetINR: 50000,
+  guestCount: 300,
+  priorityWeights: {
+    food: 3,
+    decor: 2,
+    venue: 4,
+    photography: 2,
+    entertainment: 5,
+  },
+  demographics: {
+    kidsPercent: 15,
+    adultsPercent: 80,
+    seniorsPercent: 5,
+    dietaryTags: ['Vegetarian', 'Eggitarian option'],
+    accessibilityNeeds: ['Open-ground event — ensure shaded seating for heat relief'],
+  },
+  budgetCategories: [
+    {
+      id: 'cat-food',
+      name: 'Food & Catering',
+      allocatedAmount: 12000,
+      estimatedCost: 15000,
+      isConfirmedQuote: false,
+      priority: 3,
+      notes:
+        'Estimated Market Benchmark: ₹40–₹60 per head for samosa-chaat-tea stalls × 300 attendees. Student volunteers serve to cut costs.',
+    },
+    {
+      id: 'cat-decor',
+      name: 'Décor & Flowers',
+      allocatedAmount: 5000,
+      estimatedCost: 4000,
+      isConfirmedQuote: false,
+      priority: 2,
+      notes:
+        'Estimated Market Benchmark: Paper buntings, rangoli, recycled-material installations by art students. Minimal flower use.',
+    },
+    {
+      id: 'cat-venue',
+      name: 'Venue',
+      allocatedAmount: 15000,
+      estimatedCost: 10000,
+      isConfirmedQuote: true,
+      priority: 4,
+      notes:
+        'Estimated Market Benchmark: College auditorium/open ground — ₹5,000–₹10,000 for power & cleaning deposit. Often subsidised by institution.',
+    },
+    {
+      id: 'cat-photo',
+      name: 'Photography & Video',
+      allocatedAmount: 5000,
+      estimatedCost: 5000,
+      isConfirmedQuote: false,
+      priority: 2,
+      notes:
+        'Estimated Market Benchmark: Student photographers with DSLRs + smartphone live-stream. Editing by media club volunteers.',
+    },
+    {
+      id: 'cat-entertain',
+      name: 'Entertainment & Music',
+      allocatedAmount: 13000,
+      estimatedCost: 16000,
+      isConfirmedQuote: false,
+      priority: 5,
+      notes:
+        'Estimated Market Benchmark: Hired PA system (₹8,000) + anchor fees (₹3,000) + student band logistics (₹5,000). Central draw of the event.',
+    },
+  ],
+  smartPlate: {
+    invitedGuests: 300,
+    expectedTurnoutPercent: 78,
+    guaranteedBasePlates: 234,
+    bufferPlates: 30,
+    estimatedSavingsINR: 1800,
+    surplusRedistributionPlan: [
+      'Step 1 — Pack & Distribute: Arrange takeaway containers and distribute surplus meals to event staff, security, and drivers on-site.',
+      'Step 2 — Community Share: Coordinate with a local NGO or community kitchen (e.g., Robin Hood Army) for same-day pickup of sealed surplus food.',
+      'Step 3 — Compost Responsibly: Any food that cannot be redistributed should be sent to a composting facility rather than landfill — confirm with your venue\'s waste-management partner.',
+    ],
+  },
+  vendorPackages: [
+    {
+      mode: 'minimize_cost',
+      title: 'Street-Food Stall Setup',
+      estimatedPerPersonINR: 40,
+      totalEstimatedINR: 12000,
+      menuHighlights: [
+        'Samosa + Chutney station',
+        'Masala Chai counter',
+        'Popcorn & Cotton Candy for kids',
+      ],
+      arrangementHighlights: [
+        'Student volunteer-run stalls',
+        'Paper plates & clay cups (eco-friendly)',
+      ],
+      pros: ['Ultra-low cost', 'Authentic fest vibe', 'Quick service, no formal dining'],
+      tradeOffs: ['No sit-down meal', 'Limited variety', 'Needs 10+ volunteers'],
+    },
+    {
+      mode: 'balanced',
+      title: 'Fest Combo Buffet',
+      estimatedPerPersonINR: 70,
+      totalEstimatedINR: 21000,
+      menuHighlights: [
+        'Pav Bhaji + Chole Bhature + Pani Puri counters',
+        'Cold Drinks & Lemonade bar',
+        'Mithai & Fruit Chaat dessert',
+      ],
+      arrangementHighlights: [
+        'Mix of volunteer + hired servers',
+        'Compostable plates & spoons',
+      ],
+      pros: ['Better variety', 'Still affordable', 'Covers diverse tastes'],
+      tradeOffs: ['Slightly over basic budget', 'Needs 6 volunteers + 2 hired staff'],
+    },
+    {
+      mode: 'maximize_variety',
+      title: 'Mini Food Court',
+      estimatedPerPersonINR: 100,
+      totalEstimatedINR: 30000,
+      menuHighlights: [
+        '5 themed stalls: South Indian, Chinese, Italian, Chaat, Desserts',
+        'Live Dosa & Noodle wok counters',
+        'Ice-cream cart',
+      ],
+      arrangementHighlights: [
+        'Stall branding by design students',
+        'Token-based ordering system',
+      ],
+      pros: ['Festival food-court experience', 'Instagram-worthy variety', 'Smooth crowd management with tokens'],
+      tradeOffs: [
+        '2.5× base cost',
+        'Needs 15+ volunteers & coordination',
+        'Setup takes 4+ hours',
+      ],
+    },
+  ],
+  vendorQuotes: [],
+  timeline: [
+    {
+      id: 'tl-c1',
+      title: 'Get college/institution permission & venue slot',
+      category: 'Venue',
+      weeksBefore: 4,
+      status: 'pending',
+      dependsOn: [],
+      impactIfDelayed: 'No venue confirmation; entire event at risk of cancellation.',
+    },
+    {
+      id: 'tl-c2',
+      title: 'Form volunteer committees (food, décor, tech, registration)',
+      category: 'Entertainment & Music',
+      weeksBefore: 4,
+      status: 'pending',
+      dependsOn: [],
+      impactIfDelayed: 'Tasks pile up on core organisers; burnout and last-minute chaos.',
+    },
+    {
+      id: 'tl-c3',
+      title: 'Confirm PA system & sound vendor',
+      category: 'Entertainment & Music',
+      weeksBefore: 3,
+      status: 'pending',
+      dependsOn: ['tl-c1'],
+      impactIfDelayed: 'No sound = no performances. This is a hard blocker.',
+    },
+    {
+      id: 'tl-c4',
+      title: 'Finalise refreshment stall plan & order supplies',
+      category: 'Food & Catering',
+      weeksBefore: 2,
+      status: 'pending',
+      dependsOn: ['tl-c1', 'tl-c2'],
+      impactIfDelayed: 'Bulk snack orders need 5–7 day lead time; late orders cost 20% more.',
+    },
+    {
+      id: 'tl-c5',
+      title: 'Publicity — posters, social media, WhatsApp broadcasts',
+      category: 'Entertainment & Music',
+      weeksBefore: 2,
+      status: 'pending',
+      dependsOn: ['tl-c1'],
+      impactIfDelayed: 'Poor turnout if marketing starts less than 10 days before.',
+    },
+    {
+      id: 'tl-c6',
+      title: 'Rehearsal & tech sound-check',
+      category: 'Entertainment & Music',
+      weeksBefore: 1,
+      status: 'pending',
+      dependsOn: ['tl-c3'],
+      impactIfDelayed: 'Mic issues, feedback loops discovered live. Embarrassment risk.',
+    },
+    {
+      id: 'tl-c7',
+      title: 'Setup day — décor, stalls, registration desk, signage',
+      category: 'Décor & Flowers',
+      weeksBefore: 0,
+      status: 'pending',
+      dependsOn: ['tl-c4', 'tl-c5', 'tl-c6'],
+      impactIfDelayed: 'Setup must complete 3 hours before gates open. No margin.',
+    },
+  ],
+  vibeAudit: [
+    {
+      zone: 'Main Stage / Performance Area',
+      frictionWarning: 'High decibel levels from PA system near front rows can cause discomfort for younger kids and elderly attendees.',
+      accommodationFix: 'Designate a "quiet viewing" zone 20m from stage with chairs and shade. Distribute free earplugs at registration.',
+      targetGroup: 'all',
+    },
+    {
+      zone: 'Food Stall Zone',
+      frictionWarning: 'Long queues in sun (open-ground events) cause dehydration and frustration, especially for seniors.',
+      accommodationFix: 'Set up shade canopies over queue lanes. Place water dispensers at each stall. Use token system to avoid bunching.',
+      targetGroup: 'seniors',
+    },
+  ],
+  tradeOffs: [],
+  mutationHistory: [],
+};
+
+// ─────────────────────────────────────────────────────────────────────────────
+// Preset 3: Milestone 50th Family Birthday
+// ─────────────────────────────────────────────────────────────────────────────
+
+export const PRESET_BIRTHDAY: EventPlan = {
+  name: 'Milestone 50th Family Birthday',
+  eventType: 'birthday',
+  eventDate: '2025-04-10',
+  totalBudgetINR: 25000,
+  guestCount: 60,
+  priorityWeights: {
+    food: 5,
+    decor: 3,
+    venue: 2,
+    photography: 3,
+    entertainment: 4,
+  },
+  demographics: {
+    kidsPercent: 20,
+    adultsPercent: 55,
+    seniorsPercent: 25,
+    dietaryTags: ['Vegetarian', 'Satvik (No Onion/Garlic)', 'Jain', 'Sugar-free desserts for diabetics'],
+    accessibilityNeeds: [
+      'Ground-floor venue (no stairs)',
+      'Low-noise zone for elders with hearing aids',
+      'High-chair seating for toddlers',
+    ],
+  },
+  budgetCategories: [
+    {
+      id: 'cat-food',
+      name: 'Food & Catering',
+      allocatedAmount: 10000,
+      estimatedCost: 12000,
+      isConfirmedQuote: false,
+      priority: 5,
+      notes:
+        'Estimated Market Benchmark: ₹150–₹250/plate for 60 guests, home-style catering. Includes separate Satvik/Jain counter and sugar-free sweet tray.',
+    },
+    {
+      id: 'cat-decor',
+      name: 'Décor & Flowers',
+      allocatedAmount: 4000,
+      estimatedCost: 3500,
+      isConfirmedQuote: false,
+      priority: 3,
+      notes:
+        'Estimated Market Benchmark: Balloon arch (₹1,500), banner printing (₹500), photo-memory wall with printed family photos (₹1,500).',
+    },
+    {
+      id: 'cat-venue',
+      name: 'Venue',
+      allocatedAmount: 3000,
+      estimatedCost: 3000,
+      isConfirmedQuote: true,
+      priority: 2,
+      notes:
+        'Estimated Market Benchmark: Society clubhouse / community hall. ₹2,000–₹5,000 for 4-hour slot. Confirmed booking.',
+    },
+    {
+      id: 'cat-photo',
+      name: 'Photography & Video',
+      allocatedAmount: 4000,
+      estimatedCost: 3500,
+      isConfirmedQuote: false,
+      priority: 3,
+      notes:
+        'Estimated Market Benchmark: Freelance photographer for 3 hours (₹3,000–₹5,000). Family member handles video on smartphone.',
+    },
+    {
+      id: 'cat-entertain',
+      name: 'Entertainment & Music',
+      allocatedAmount: 4000,
+      estimatedCost: 4500,
+      isConfirmedQuote: false,
+      priority: 4,
+      notes:
+        'Estimated Market Benchmark: Bluetooth speaker system (₹800 rental), curated Spotify playlist, karaoke mic (₹1,200), nostalgic photo slideshow setup (₹1,500), cake-cutting ceremony anchoring.',
+    },
+  ],
+  smartPlate: {
+    invitedGuests: 60,
+    expectedTurnoutPercent: 93,
+    guaranteedBasePlates: 56,
+    bufferPlates: 4,
+    estimatedSavingsINR: 0,
+    surplusRedistributionPlan: [],
+  },
+  vendorPackages: [
+    {
+      mode: 'minimize_cost',
+      title: 'Home-Style Thali Service',
+      estimatedPerPersonINR: 150,
+      totalEstimatedINR: 9000,
+      menuHighlights: [
+        'Dal-Rice-Roti-Sabzi Thali',
+        'Raita & Papad',
+        'Gulab Jamun (2 pcs)',
+      ],
+      arrangementHighlights: [
+        'Served in steel thalis',
+        'Home caterer setup — minimal equipment',
+      ],
+      pros: ['Very affordable', 'Comfort food loved by all ages', 'Quick setup'],
+      tradeOffs: ['Limited variety', 'No live counters', 'May feel basic for a milestone event'],
+    },
+    {
+      mode: 'balanced',
+      title: 'Multi-Counter Family Feast',
+      estimatedPerPersonINR: 220,
+      totalEstimatedINR: 13200,
+      menuHighlights: [
+        'Paneer Tikka + Mini Dosa counter',
+        'Dal Makhani, Jeera Rice, Naan',
+        'Separate Satvik counter (no onion/garlic)',
+        'Kids corner: Mini pizza, french fries, chocolate shake',
+        'Sugar-free fruit custard for diabetic elders',
+      ],
+      arrangementHighlights: [
+        'Steel crockery',
+        'Separate dietary-labelled stations',
+        'Dedicated kids table with low chairs',
+      ],
+      pros: ['Covers all dietary needs', 'Kid-friendly + elder-friendly', 'Feels special without being extravagant'],
+      tradeOffs: ['~47% over budget tier', 'Needs caterer with multi-dietary expertise'],
+    },
+    {
+      mode: 'maximize_variety',
+      title: 'Gourmet Milestone Spread',
+      estimatedPerPersonINR: 350,
+      totalEstimatedINR: 21000,
+      menuHighlights: [
+        'Welcome drinks: Jaljeera, Kokum, Fresh Lime',
+        'Starters: Hara Bhara Kebab, Corn Tikki, Dhokla Platter',
+        'Mains: Paneer Lababdar, Dal Tadka, Veg Biryani, Laccha Paratha',
+        'Satvik Counter: Sabudana Khichdi, Singhare Atta Puri, Makhana curry',
+        'Live Jalebi counter + Sugar-free Rasmalai',
+        'Cake-cutting ceremony catering (tiered cake included)',
+      ],
+      arrangementHighlights: [
+        'Ceramic crockery, cloth napkins',
+        'Photo-ready food presentation',
+        'Acoustic zoning: quiet dining vs. celebration area',
+      ],
+      pros: ['Every generation delighted', 'Dietary inclusivity is thorough', 'Milestone-worthy presentation'],
+      tradeOffs: [
+        'Highest cost option',
+        'Needs 4 service staff minimum',
+        'Setup: 2 hours',
+      ],
+    },
+  ],
+  vendorQuotes: [],
+  timeline: [
+    {
+      id: 'tl-b1',
+      title: 'Book community hall / society clubhouse',
+      category: 'Venue',
+      weeksBefore: 2,
+      status: 'completed',
+      dependsOn: [],
+      impactIfDelayed: 'Weekend slots booked fast; may need to shift to a weekday.',
+    },
+    {
+      id: 'tl-b2',
+      title: 'Confirm caterer & finalise menu (including Satvik/Jain counters)',
+      category: 'Food & Catering',
+      weeksBefore: 2,
+      status: 'pending',
+      dependsOn: ['tl-b1'],
+      impactIfDelayed: 'Home caterers need 10-day notice for multi-counter setups. Last-minute = limited menu.',
+    },
+    {
+      id: 'tl-b3',
+      title: 'Order birthday cake & sugar-free alternatives',
+      category: 'Food & Catering',
+      weeksBefore: 1,
+      status: 'pending',
+      dependsOn: [],
+      impactIfDelayed: 'Custom cakes (eggless, sugar-free tier) need 4–5 day lead time.',
+    },
+    {
+      id: 'tl-b4',
+      title: 'Buy décor supplies (balloons, banner, photo prints)',
+      category: 'Décor & Flowers',
+      weeksBefore: 1,
+      status: 'pending',
+      dependsOn: ['tl-b1'],
+      impactIfDelayed: 'Online orders need 3–5 days shipping. Local shops may lack specific colours.',
+    },
+    {
+      id: 'tl-b5',
+      title: 'Prepare nostalgia slideshow & playlist',
+      category: 'Entertainment & Music',
+      weeksBefore: 1,
+      status: 'pending',
+      dependsOn: [],
+      impactIfDelayed: 'Collecting family photos takes time — start early to avoid last-night rushes.',
+    },
+    {
+      id: 'tl-b6',
+      title: 'Confirm photographer & brief on key moments',
+      category: 'Photography & Video',
+      weeksBefore: 1,
+      status: 'pending',
+      dependsOn: ['tl-b1'],
+      impactIfDelayed: 'Freelancers may not be available on short notice on weekends.',
+    },
+    {
+      id: 'tl-b7',
+      title: 'Setup — décor, sound, seating, dietary station labels, kids area',
+      category: 'Venue',
+      weeksBefore: 0,
+      status: 'pending',
+      dependsOn: ['tl-b2', 'tl-b3', 'tl-b4', 'tl-b5', 'tl-b6'],
+      impactIfDelayed: 'Must finish 2 hours before guests arrive. Family volunteers needed.',
+    },
+  ],
+  vibeAudit: [
+    {
+      zone: 'Dining Area',
+      frictionWarning: 'Mixed seating forces seniors with dietary restrictions to search for suitable food among general stations.',
+      accommodationFix: 'Place clearly labelled "Satvik / Jain" and "Sugar-Free" stations nearest to the senior seating zone.',
+      targetGroup: 'seniors',
+    },
+    {
+      zone: 'Kids Play Area',
+      frictionWarning: 'No dedicated space — kids may knock into food stations or disrupt speeches.',
+      accommodationFix: 'Cordon off a 3m × 3m "Kids Zone" with a mat, colouring books, and a cartoon playing on a tablet.',
+      targetGroup: 'kids',
+    },
+    {
+      zone: 'Main Celebration Area',
+      frictionWarning: 'Karaoke and music may be too loud for elders with hearing aids, causing feedback discomfort.',
+      accommodationFix: 'Use acoustic zoning: limit speaker volume in the dining half; place karaoke mic/speaker facing away from senior seating.',
+      targetGroup: 'seniors',
+    },
+  ],
+  tradeOffs: [],
+  mutationHistory: [],
+};
+
+/** All presets indexed for easy lookup. */
+export const ALL_PRESETS: EventPlan[] = [
+  PRESET_WEDDING,
+  PRESET_COMMUNITY,
+  PRESET_BIRTHDAY,
+];
+
