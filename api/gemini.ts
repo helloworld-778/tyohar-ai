@@ -9,10 +9,14 @@
 
 import { GoogleGenAI } from '@google/genai';
 
-// ─────────────────────────────────────────────────────────────────────────────
-// Local type definitions (mirrors src/types/tyohar.ts — kept in sync manually)
-// ─────────────────────────────────────────────────────────────────────────────
+/**
+ * Maximum permissible request payload size in bytes (64 KB).
+ */
+const MAX_PAYLOAD_SIZE_BYTES = 64 * 1024;
 
+/**
+ * Supported Gemini AI orchestration action types.
+ */
 type AiAction =
   | 'GENERATE_CUSTOM_PLAN'
   | 'OPTIMIZE_VENDOR_MENU'
@@ -73,6 +77,13 @@ interface EventPlanSummary {
 // Inline sanitisation (lightweight server-side — no import from src/)
 // ─────────────────────────────────────────────────────────────────────────────
 
+/**
+ * Sanitizes untrusted user strings against HTML tag injection and prompt override patterns.
+ *
+ * @param input - The raw input value.
+ * @param maxLen - Upper boundary on character length (defaults to 4000).
+ * @returns Cleaned string safe for LLM context interpolation.
+ */
 function sanitize(input: unknown, maxLen = 4000): string {
   if (typeof input !== 'string') return '';
   return input
@@ -91,6 +102,15 @@ function sanitize(input: unknown, maxLen = 4000): string {
     .slice(0, maxLen);
 }
 
+/**
+ * Bounds numerical values within safe operational thresholds.
+ *
+ * @param v - Input value to test.
+ * @param min - Minimum allowed bound.
+ * @param max - Maximum allowed bound.
+ * @param fallback - Default fallback if input is invalid or non-finite.
+ * @returns Validated numeric scalar.
+ */
 function clampNum(v: unknown, min: number, max: number, fallback: number): number {
   const n = typeof v === 'number' ? v : Number(v);
   return Number.isFinite(n) && n >= min && n <= max ? n : fallback;
@@ -281,6 +301,12 @@ interface VercelResponse {
   setHeader: (name: string, value: string) => VercelResponse;
 }
 
+/**
+ * Main serverless gateway handler for Gemini AI generation queries.
+ *
+ * @param req - Incoming HTTP request.
+ * @param res - Outgoing HTTP response.
+ */
 export default async function handler(
   req: VercelRequest,
   res: VercelResponse,
@@ -300,6 +326,24 @@ export default async function handler(
     return;
   }
 
+  // Enforce request size boundaries to prevent denial-of-service memory pressure
+  try {
+    const rawSize = JSON.stringify(req.body ?? {}).length;
+    if (rawSize > MAX_PAYLOAD_SIZE_BYTES) {
+      res.status(413).json({
+        success: false,
+        error: 'Payload Too Large. Request body exceeds maximum allowed limit (64 KB).',
+      });
+      return;
+    }
+  } catch {
+    res.status(400).json({
+      success: false,
+      error: 'Malformed request body structure.',
+    });
+    return;
+  }
+
   // Resolve API key: user-supplied BYOK header → server env var
   const customKey = typeof req.headers['x-custom-api-key'] === 'string'
     ? req.headers['x-custom-api-key']
@@ -316,7 +360,7 @@ export default async function handler(
 
   // Parse & validate payload
   const body = req.body as AiRequestPayload | undefined;
-  if (!body || !body.action || !body.data) {
+  if (!body || !body.action || !body.data || typeof body.data !== 'object') {
     res.status(400).json({
       success: false,
       error: 'Invalid request body. Expected { action: string, data: object }.',
@@ -370,13 +414,17 @@ export default async function handler(
       isFallback: false,
     });
   } catch (error: unknown) {
-    const message =
-      error instanceof Error ? error.message : 'Unknown error during AI generation.';
+    // Sanitize error message to prevent accidental leak of internal system details or credentials
+    const rawMessage = error instanceof Error ? error.message : 'Unknown error during AI generation.';
+    const safeMessage = rawMessage
+      .replace(/AIza[0-9A-Za-z-_]{35}/g, '[REDACTED_API_KEY]')
+      .slice(0, 300);
+
     res.status(500).json({
       success: false,
       action: body.action,
       result: {},
-      error: message,
+      error: safeMessage,
       isFallback: false,
     });
   }

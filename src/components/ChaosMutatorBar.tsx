@@ -19,6 +19,8 @@ import type { EventPlan, MutationDiff } from '../types/tyohar';
 import { callTyoharAI } from '../services/aiClient';
 import { recalculateBudgetAllocations } from '../utils/budgetEngine';
 import { compressTimelineForEarlierDate } from '../utils/timelineEngine';
+import { formatINR } from '../utils/formatters';
+import { OVERRUN_STRESS_MULTIPLIER } from '../constants/config';
 
 interface ChaosMutatorBarProps {
   currentPlan: EventPlan;
@@ -86,7 +88,7 @@ export const ChaosMutatorBar: React.FC<ChaosMutatorBarProps> = ({
           if (!cat.isConfirmedQuote) {
             return {
               ...cat,
-              estimatedCost: Math.round(cat.estimatedCost * 1.2),
+              estimatedCost: Math.round(cat.estimatedCost * OVERRUN_STRESS_MULTIPLIER),
             };
           }
           return cat;
@@ -218,8 +220,6 @@ export const ChaosMutatorBar: React.FC<ChaosMutatorBarProps> = ({
     if (!inputScenario.trim()) return;
     await executeMutation(inputScenario);
   };
-
-  const formatINR = (val: number) => '₹' + Math.round(val).toLocaleString('en-IN');
 
   return (
     <>

@@ -1,6 +1,13 @@
+/**
+ * @file EventBackdrop.tsx
+ * @description Background decorative atmospheric canvas providing rotating mandalas,
+ * rangoli lattices, celebration starbursts, and celebration confetti bursts.
+ */
+
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import type { EventType } from '../../types/tyohar';
+import { EventCanopy } from './EventCanopy';
 
 interface EventBackdropProps {
   eventType: EventType;
@@ -49,57 +56,13 @@ export const EventBackdrop: React.FC<EventBackdropProps> = ({
       aria-hidden="true"
       className={`pointer-events-none fixed inset-0 overflow-hidden z-0 select-none ${className}`}
     >
-      {/* ── 1. WEDDING (ROYAL VIVAH): Toran Canopy + 22% Mandala Watermarks ── */}
+      {/* Top Header Canopy Decor */}
+      <EventCanopy eventType={eventType} />
+
+      {/* ── 1. WEDDING (ROYAL VIVAH): 22% Mandala Watermarks ── */}
       {eventType === 'wedding' && (
         <>
-          {/* Hanging Marigold & Mango-Leaf Toran Canopy across Header */}
-          <div className="absolute top-0 left-0 right-0 h-16 sm:h-20 event-canopy opacity-90 overflow-hidden">
-            <svg viewBox="0 0 1440 80" preserveAspectRatio="none" className="w-full h-full animate-toran">
-              {/* Supporting Golden Thread */}
-              <path
-                d="M0,12 Q90,32 180,12 T360,12 T540,12 T720,12 T900,12 T1080,12 T1260,12 T1440,12"
-                fill="none"
-                stroke="#B4690E"
-                strokeWidth="2"
-              />
-              <path
-                d="M0,18 Q90,38 180,18 T360,18 T540,18 T720,18 T900,18 T1080,18 T1260,18 T1440,18"
-                fill="none"
-                stroke="#C23B22"
-                strokeWidth="1.2"
-                strokeDasharray="4 2"
-              />
-
-              {/* Hanging Mango Leaves & Marigold Drops every 90px */}
-              {[...Array(17)].map((_, i) => {
-                const cx = i * 90;
-                return (
-                  <g key={i} transform={`translate(${cx}, 0)`}>
-                    {/* Mango Leaf (Green Spear) */}
-                    <path
-                      d="M0,14 C-7,28 -5,48 0,60 C5,48 7,28 0,14 Z"
-                      fill="#1E5631"
-                      stroke="#144224"
-                      strokeWidth="0.8"
-                    />
-                    {/* Leaf Center Vein */}
-                    <line x1="0" y1="18" x2="0" y2="54" stroke="#2D6A4F" strokeWidth="0.8" />
-
-                    {/* Marigold Flower Cluster Drop */}
-                    <circle cx="45" cy="32" r="7" fill="#D97706" />
-                    <circle cx="45" cy="32" r="5" fill="#B4690E" />
-                    <circle cx="45" cy="32" r="2.5" fill="#C23B22" />
-                    <line x1="45" y1="14" x2="45" y2="25" stroke="#B4690E" strokeWidth="1.2" />
-
-                    {/* Golden Pearl Drops */}
-                    <circle cx="0" cy="65" r="2.5" fill="#B4690E" />
-                  </g>
-                );
-              })}
-            </svg>
-          </div>
-
-          {/* Top-Right Rotating Royal Vivah Mandala (22% Opacity + Mouse Parallax) */}
+          {/* Top-Right Rotating Royal Vivah Mandala */}
           <motion.div
             style={{
               x: mouseOffset.x * 1.2,
@@ -115,7 +78,6 @@ export const EventBackdrop: React.FC<EventBackdropProps> = ({
               <circle cx="200" cy="200" r="110" stroke="#B4690E" strokeWidth="2" />
               <circle cx="200" cy="200" r="70" stroke="#C23B22" strokeWidth="1.5" strokeDasharray="4 3" />
               <circle cx="200" cy="200" r="20" fill="#B4690E" opacity="0.3" />
-              {/* 16 Radiant Petals */}
               {[...Array(16)].map((_, i) => (
                 <g key={i} transform={`rotate(${i * 22.5} 200 200)`}>
                   <path
@@ -162,40 +124,9 @@ export const EventBackdrop: React.FC<EventBackdropProps> = ({
         </>
       )}
 
-      {/* ── 2. BIRTHDAY (JUBILEE): Bunting Canopy + Starburst Watermarks ─── */}
+      {/* ── 2. BIRTHDAY (JUBILEE): Starburst Watermarks + Confetti Burst ── */}
       {eventType === 'birthday' && (
         <>
-          {/* Animated Bunting Pennant Canopy across Header */}
-          <div className="absolute top-0 left-0 right-0 h-16 sm:h-20 event-canopy opacity-95 overflow-hidden">
-            <svg viewBox="0 0 1440 70" preserveAspectRatio="none" className="w-full h-full animate-bunting">
-              {/* String line */}
-              <path
-                d="M0,10 Q120,24 240,10 T480,10 T720,10 T960,10 T1200,10 T1440,10"
-                fill="none"
-                stroke="#D97706"
-                strokeWidth="1.8"
-              />
-
-              {/* Colorful Triangular Pennants */}
-              {[...Array(24)].map((_, i) => {
-                const colors = ['#BE185D', '#D97706', '#C23B22', '#B4690E', '#BE185D'];
-                const fillColor = colors[i % colors.length];
-                const x = i * 60 + 5;
-                return (
-                  <polygon
-                    key={i}
-                    points={`${x},12 ${x + 25},48 ${x + 50},12`}
-                    fill={fillColor}
-                    fillOpacity="0.85"
-                    stroke="#FFFFFF"
-                    strokeWidth="1"
-                  />
-                );
-              })}
-            </svg>
-          </div>
-
-          {/* Floating Jubilee Geometric Starbursts (24% Opacity) */}
           <motion.div
             style={{
               x: mouseOffset.x * 1.5,
@@ -223,7 +154,6 @@ export const EventBackdrop: React.FC<EventBackdropProps> = ({
             </svg>
           </motion.div>
 
-          {/* Bottom-Right Jubilee Sparkle Cluster */}
           <motion.div
             style={{
               x: -mouseOffset.x * 1.2,
@@ -245,24 +175,6 @@ export const EventBackdrop: React.FC<EventBackdropProps> = ({
             </svg>
           </motion.div>
 
-          {/* Left Floating Confetti Streamers */}
-          <motion.div
-            style={{
-              x: mouseOffset.x * 0.8,
-              y: mouseOffset.y * 0.8,
-            }}
-            animate={{ y: [-14, 14, -14] }}
-            transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-            className="absolute top-44 left-16 w-60 h-60 opacity-[0.20] sm:opacity-[0.24]"
-          >
-            <svg viewBox="0 0 200 200" className="w-full h-full" fill="none">
-              <polygon points="100,15 165,100 100,185 35,100" stroke="#BE185D" strokeWidth="1.8" fill="#BE185D" fillOpacity="0.08" />
-              <polygon points="100,45 145,100 100,155 55,100" stroke="#D97706" strokeWidth="1.5" strokeDasharray="4 4" />
-              <circle cx="100" cy="100" r="7" fill="#D97706" />
-            </svg>
-          </motion.div>
-
-          {/* Instant Confetti / Sparkle Burst when Triggered */}
           <AnimatePresence>
             {showConfetti && (
               <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
@@ -301,41 +213,9 @@ export const EventBackdrop: React.FC<EventBackdropProps> = ({
         </>
       )}
 
-      {/* ── 3. COMMUNITY (UTSAV): Shamiana Canopy + Rangoli Watermarks ────── */}
+      {/* ── 3. COMMUNITY (UTSAV): Breathing Rangoli & Arch ── */}
       {eventType === 'community' && (
         <>
-          {/* Festival Shamiana Canopy with Scalloped Valence */}
-          <div className="absolute top-0 left-0 right-0 h-16 sm:h-20 event-canopy opacity-90 overflow-hidden">
-            <svg viewBox="0 0 1440 70" preserveAspectRatio="none" className="w-full h-full">
-              {/* Shamiana Roof Edge */}
-              <line x1="0" y1="8" x2="1440" y2="8" stroke="#C2410C" strokeWidth="2.5" />
-
-              {/* Scalloped Valence Arches */}
-              {[...Array(18)].map((_, i) => {
-                const x = i * 80;
-                return (
-                  <g key={i} transform={`translate(${x}, 8)`}>
-                    <path
-                      d="M0,0 Q40,36 80,0"
-                      fill="#F4FBF7"
-                      stroke="#0F766E"
-                      strokeWidth="1.8"
-                    />
-                    <path
-                      d="M10,0 Q40,26 70,0"
-                      fill="none"
-                      stroke="#C2410C"
-                      strokeWidth="1.2"
-                      strokeDasharray="3 3"
-                    />
-                    <circle cx="40" cy="20" r="3" fill="#C2410C" />
-                  </g>
-                );
-              })}
-            </svg>
-          </div>
-
-          {/* Breathing Rangoli Lattice Grid Top-Right (22% Opacity + Mouse Parallax) */}
           <motion.div
             style={{
               x: mouseOffset.x * 1.1,
@@ -355,7 +235,6 @@ export const EventBackdrop: React.FC<EventBackdropProps> = ({
             </svg>
           </motion.div>
 
-          {/* Bottom-Left Pavilion Arch */}
           <motion.div
             style={{
               x: -mouseOffset.x * 0.9,
